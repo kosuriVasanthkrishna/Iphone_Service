@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Service | iPhone Service - iPhoneAlchemy.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.gadgetgone.com/wp-content/uploads/2020/03/AdobeStock_136504703-scaled.jpeg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .model-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .dropdown {
+            display: none;
+        }
+
+        .coming-soon {
+            font-size: 18px;
+            color: #f00;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #bookButton {
+            margin-top: 20px;
+            display: none;
+        }
+
+        #bookButton button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #bookButton button:hover {
+            background-color: #0056b3;
+        }
+
+        .nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>iPhone Service Pricing</h1>
+    </header>
+
+    <div class="container">
+        <div class="model-buttons">
+            <button onclick="showDropdown('iphone11')">Select iPhone 11 and Older</button>
+            <button onclick="showDropdown('iphone12')">Select iPhone 12</button>
+            <button onclick="showDropdown('iphone13')">Select iPhone 13</button>
+            <button onclick="showDropdown('iphone14')">Select iPhone 14</button>
+            <button onclick="showComingSoon()">Select iPhone 15</button>
+        </div>
+
+        <div id="iphone11" class="dropdown">
+            <h2>iPhone 11 and Older Services</h2>
+            <select id="services11">
+                <option value="frontGlass">Front Glass Replacement - $140</option>
+                <option value="backGlass">Back Glass Replacement - $100</option>
+                <option value="chargingPort">Charging Port Cleaning - $25</option>
+                <option value="screenGuard">Installing Screen Guard - $50</option>
+                <option value="battery">Battery Replacement - $30</option>
+            </select>
+            <button onclick="showBookButton('services11')">Book the Service</button>
+        </div>
+
+        <div id="iphone12" class="dropdown">
+            <h2>iPhone 12 Services</h2>
+            <select id="services12">
+                <option value="frontGlass">Front Glass Replacement - $180</option>
+                <option value="backGlass">Back Glass Replacement - $130</option>
+                <option value="chargingPort">Charging Port Cleaning - $25</option>
+                <option value="screenGuard">Installing Screen Guard - $50</option>
+                <option value="battery">Battery Replacement - $45</option>
+            </select>
+            <button onclick="showBookButton('services12')">Book the Service</button>
+        </div>
+
+        <div id="iphone13" class="dropdown">
+            <h2>iPhone 13 Services</h2>
+            <select id="services13">
+                <option value="frontGlass">Front Glass Replacement - $180</option>
+                <option value="backGlass">Back Glass Replacement - $130</option>
+                <option value="chargingPort">Charging Port Cleaning - $25</option>
+                <option value="screenGuard">Installing Screen Guard - $50</option>
+                <option value="battery">Battery Replacement - $45</option>
+            </select>
+            <button onclick="showBookButton('services13')">Book the Service</button>
+        </div>
+
+        <div id="iphone14" class="dropdown">
+            <h2>iPhone 14 Services</h2>
+            <select id="services14">
+                <option value="frontGlass">Front Glass Replacement - $180</option>
+                <option value="backGlass">Back Glass Replacement - $130</option>
+                <option value="chargingPort">Charging Port Cleaning - $25</option>
+                <option value="screenGuard">Installing Screen Guard - $50</option>
+                <option value="battery">Battery Replacement - $45</option>
+            </select>
+            <button onclick="showBookButton('services14')">Book the Service</button>
+        </div>
+
+        <div id="comingSoon" class="coming-soon">
+            <p style="color: #f00;">Sorry, the phones haven't been delivered to the prebooking users yet...! 😂 Once they are delivered and if any of them get destroyed, we will update our page. 😜</p>
+        </div>
+
+        <div id="bookButton">
+            <button onclick="showUserType()">Book the Service</button>
+        </div>
+
+        <div id="userType" style="display: none;">
+            <p>Select User Type:</p>
+            <button onclick="showLogin()">Returning User</button>
+            <button onclick="showCreateAccount()">New User</button>
+        </div>
+
+        <div id="login" style="display: none;">
+            <h2>Login</h2>
+            <!-- Add login form fields here -->
+            <button onclick="showConfirmation()">Login</button>
+        </div>
+
+        <div id="createAccount" style="display: none;">
+            <h2>Create Account</h2>
+            <!-- Add account creation form fields here (Name, Phone, Email, Password) -->
+            <button onclick="showConfirmation()">Create Account</button>
+        </div>
+
+        <div id="confirmation" style="display: none;">
+            <h2>Confirm Service Appointment</h2>
+            <button onclick="showConfirmationPage()">Confirm</button>
+        </div>
+
+        <div id="confirmationPage" style="display: none;">
+            <h2>Service Booking Confirmed</h2>
+            <p>Your service appointment has been confirmed. For more information, please <a href="contact.html">contact us</a>.</p>
+        </div>
+
+        <div class="nav">
+            <a href="Homepage.html">Home</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 iPhone Service - iPhoneAlchemy.com. All rights reserved.
+    </footer>
+
+    <script>
+        function showDropdown(model) {
+            var dropdowns = document.querySelectorAll(".dropdown");
+            dropdowns.forEach(function (dropdown) {
+                dropdown.style.display = "none";
+            });
+
+            document.getElementById(model).style.display = "block";
+            hideBookButton();
+        }
+
+        function showComingSoon() {
+            var dropdowns = document.querySelectorAll(".dropdown");
+            dropdowns.forEach(function (dropdown) {
+                dropdown.style.display = "none";
+            });
+
+            document.getElementById("comingSoon").style.display = "block";
+            hideBookButton();
+        }
+
+        function showBookButton(serviceId) {
+            var buttons = document.querySelectorAll("#bookButton button");
+            buttons.forEach(function (button) {
+                button.style.display = "none";
+            });
+
+            document.querySelector(`#${serviceId} button`).style.display = "block";
+        }
+
+        function hideBookButton() {
+            var buttons = document.querySelectorAll("#bookButton button");
+            buttons.forEach(function (button) {
+                button.style.display = "none";
+            });
+        }
+
+        function showUserType() {
+            document.getElementById("bookButton").style.display = "none";
+            document.getElementById("userType").style.display = "block";
+        }
+
+        function showLogin() {
+            document.getElementById("userType").style.display = "none";
+            document.getElementById("login").style.display = "block";
+        }
+
+        function showCreateAccount() {
+            document.getElementById("userType").style.display = "none";
+            document.getElementById("createAccount").style.display = "block";
+        }
+
+        function showConfirmation() {
+            // Add logic to validate login or account creation
+            document.getElementById("login").style.display = "none";
+            document.getElementById("createAccount").style.display = "none";
+            document.getElementById("confirmation").style.display = "block";
+        }
+
+        function showConfirmationPage() {
+            document.getElementById("confirmation").style.display = "none";
+            document.getElementById("confirmationPage").style.display = "block";
+        }
+    </script>
+</body>
+</html>
